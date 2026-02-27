@@ -1,12 +1,29 @@
-console.log("Script loaded");
+let display = document.getElementById("display");
+let message = document.getElementById("message");
 
-// below is basic example code for using a button
-// you can use it, expand on it, or delete it
-// that all depends on your team's plan.
+let correctAnswer = 327;
 
-const button = document.getElementById("button");
-const output = document.getElementById("output");
+function press(num) {
+    if (display.innerText === "0") {
+        display.innerText = num;
+    } else {
+        display.innerText += num;
+    }
+}
 
-button.addEventListener("click", function () {
-  output.textContent = "JavaScript is working.";
-});
+function clearDisplay() {
+    display.innerText = "0";
+}
+
+function checkAnswer() {
+    let answer = Number(display.innerText);
+
+    if (answer === correctAnswer) {
+        message.innerText = "✅ Correct! The room gets brighter...";
+        message.style.color = "lime";
+        document.body.style.background = "#333";
+    } else {
+        message.innerText = "❌ Wrong answer! Try again.";
+        message.style.color = "red";
+    }
+}

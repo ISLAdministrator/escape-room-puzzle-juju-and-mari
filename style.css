@@ -1,17 +1,48 @@
-/*
-This is a CSS comment :) Text just for humans, it is not part of the code
-Below is basic CSS styling.
-You can change it, add to it, or delete it.
-*/
-
 body {
-  font-family: Arial, sans-serif;
+  font-family: Arial;
   background-color: #111;
   color: white;
-  padding: 20px;
+}body {
+    background: black;
+    color: white;
+    text-align: center;
+    font-family: Arial;
+}
+
+h1 {
+    color: cyan;
+}
+
+#whiteboard {
+    background: #222;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+#calculator {
+    background: #111;
+    padding: 20px;
+    display: inline-block;
+    border-radius: 10px;
+}
+
+#display {
+    background: lime;
+    color: black;
+    font-size: 30px;
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
 button {
-  padding: 10px;
-  font-size: 16px;
+    width: 60px;
+    height: 60px;
+    font-size: 20px;
+    margin: 5px;
+}
+
+#message {
+    font-size: 24px;
+    margin-top: 20px;
 }
