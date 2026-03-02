@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Math </title>
+    <title>Escape Room</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<h1>Solve the Puzzle to Escape</h1>
-
-<div id="whiteboard">
-    <p>Solve this math problem:</p>
-    <h2>25 + 4 + 30 + 5 + 45 + 65 + 34 + 67 + 52 = ?</h2>
+<!-- Math board area -->
+<div class="board-area">
+    <h1 id="problem">145 + 182 = ?</h1>
+    <p id="message"></p>
 </div>
 
-<div id="calculator">
+<!-- Real looking calculator -->
+<div class="calculator">
     <div id="display">0</div>
 
-    <button onclick="press(1)">1</button>
-    <button onclick="press(2)">2</button>
-    <button onclick="press(3)">3</button><br>
+    <div class="buttons">
+        <button onclick="press('7')">7</button>
+        <button onclick="press('8')">8</button>
+        <button onclick="press('9')">9</button>
+        <button class="operator" onclick="setOperator('+')">+</button>
 
-    <button onclick="press(4)">4</button>
-    <button onclick="press(5)">5</button>
-    <button onclick="press(6)">6</button><br>
+        <button onclick="press('4')">4</button>
+        <button onclick="press('5')">5</button>
+        <button onclick="press('6')">6</button>
+        <button class="operator" onclick="setOperator('-')">−</button>
 
-    <button onclick="press(7)">7</button>
-    <button onclick="press(8)">8</button>
-    <button onclick="press(9)">9</button><br>
+        <button onclick="press('1')">1</button>
+        <button onclick="press('2')">2</button>
+        <button onclick="press('3')">3</button>
+        <button class="equals" onclick="calculate()">=</button>
 
-    <button onclick="clearDisplay()">C</button>
-    <button onclick="press(0)">0</button>
-    <button onclick="checkAnswer()">ENTER</button>
+        <button onclick="press('0')" class="zero">0</button>
+        <button onclick="clearDisplay()" class="clear">C</button>
+    </div>
 </div>
-
-<p id="message"></p>
 
 <script src="script.js"></script>
 </body>
