@@ -1,18 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Escape Room</title>
+<head>a
+    <title>ISL Apocalypse - Math Escape</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Math board area -->
+<!-- OVERLAY WITH RULES -->
+<div id="overlay"> 
+    <div class="rule-box">
+        <p>
+            You are trapped inside a broken math classroom in the ISL Apocalypse.<br><br>
+            To restore the learning system and escape, you must solve the math problem written on the board.
+        </p>
+        <button onclick="startGame()">Continue</button>
+    </div>
+</div>
+
+<!-- BOARD AREA -->
 <div class="board-area">
-    <h1 id="problem">145 + 182 = ?</h1>
+    <h1 id="problem">
+        38 + 55 - 5 + 5 + 49 + 69 + 14 - 1 + 67 + 88 + 64 - 22 + 52 = ?
+    </h1>
     <p id="message"></p>
 </div>
 
-<!-- Real looking calculator -->
+<!-- CALCULATOR -->
 <div class="calculator">
     <div id="display">0</div>
 
@@ -20,23 +33,23 @@
         <button onclick="press('7')">7</button>
         <button onclick="press('8')">8</button>
         <button onclick="press('9')">9</button>
-        <button class="operator" onclick="setOperator('+')">+</button>
+        <button onclick="setOperator('+')">+</button>
 
         <button onclick="press('4')">4</button>
         <button onclick="press('5')">5</button>
         <button onclick="press('6')">6</button>
-        <button class="operator" onclick="setOperator('-')">−</button>
+        <button onclick="setOperator('-')">−</button>
 
         <button onclick="press('1')">1</button>
         <button onclick="press('2')">2</button>
         <button onclick="press('3')">3</button>
-        <button class="equals" onclick="calculate()">=</button>
+        <button onclick="calculate()">=</button>
 
         <button onclick="press('0')" class="zero">0</button>
         <button onclick="clearDisplay()" class="clear">C</button>
     </div>
 </div>
 
-<script src="script.js"></script>
+<script src="script.js" defer></script>
 </body>
 </html>

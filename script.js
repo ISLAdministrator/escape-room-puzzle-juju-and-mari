@@ -1,54 +1,57 @@
 let display = document.getElementById("display");
 let message = document.getElementById("message");
 
-let firstNumber = "";
-let secondNumber = "";
-let operator = "";
+let expression = "";
+let correctAnswer = 473;
 
-let correctAnswer = 327; // change if needed
+/* START GAME (OVERLAY CLOSE) */
+function startGame() {
+    document.getElementById("overlay").style.display = "none";
+}
 
+/* NUMBER PRESS */
 function press(num) {
-    if (operator === "") {
-        firstNumber += num;
-        display.innerText = firstNumber;
-    } else {
-        secondNumber += num;
-        display.innerText = secondNumber;
-    }
+    expression += num;
+    display.innerText = expression;
 }
 
+/* OPERATOR PRESS */
 function setOperator(op) {
-    operator = op;
+    expression += op;
+    display.innerText = expression;
 }
 
+/* CALCULATE */
 function calculate() {
-    let result;
+    try {
+        let result = eval(expression);
+        display.innerText = result;
 
-    if (operator === "+") {
-        result = Number(firstNumber) + Number(secondNumber);
-    } else if (operator === "-") {
-        result = Number(firstNumber) - Number(secondNumber);
-    }
+        if (result === correctAnswer) {
+            message.innerText = 'Correct! Take your reward "I"';
+            message.style.color = "green";
 
-    display.innerText = result;
+            // делаем комнату светлее
+            document.body.style.filter = "brightness(120%)";
 
-    if (result === correctAnswer) {
-        message.innerText = " Correct! The room gets brighter!";
-        message.style.color = "green";
-        document.body.style.filter = "brightness(120%)";
-    } else {
-        message.innerText = " Wrong answer! Try again.";
+            // меняем фон
+            document.body.style.backgroundImage = "url('end.png')";
+        } 
+        else {
+            message.innerText = "Wrong answer. Try again.";
+            message.style.color = "red";
+        }
+
+        expression = result.toString();
+    } 
+    catch {
+        message.innerText = "Invalid expression.";
         message.style.color = "red";
     }
-
-    firstNumber = "";
-    secondNumber = "";
-    operator = "";
 }
 
+/* CLEAR */
 function clearDisplay() {
+    expression = "";
     display.innerText = "0";
-    firstNumber = "";
-    secondNumber = "";
-    operator = "";
 }
