@@ -4,54 +4,61 @@ let message = document.getElementById("message");
 let expression = "";
 let correctAnswer = 473;
 
-/* START GAME (OVERLAY CLOSE) */
-function startGame() {
-    document.getElementById("overlay").style.display = "none";
+function press(num){
+expression += num;
+display.innerText = expression;
 }
 
-/* NUMBER PRESS */
-function press(num) {
-    expression += num;
-    display.innerText = expression;
+function setOperator(op){
+expression += op;
+display.innerText = expression;
 }
 
-/* OPERATOR PRESS */
-function setOperator(op) {
-    expression += op;
-    display.innerText = expression;
+function calculate(){
+
+try{
+
+let result = eval(expression);
+
+display.innerText = result;
+
+if(result === correctAnswer){
+
+message.innerText = 'Correct! Take your reward "I"';
+message.style.color = "green";
+
+document.body.style.backgroundImage = "url('end.png')";
+
+document.getElementById("reward").style.display = "block";
+
+document.getElementById("nextStage").style.display = "block";
+
+}else{
+
+message.innerText = "Wrong answer. Try again.";
+message.style.color = "red";
+
 }
 
-/* CALCULATE */
-function calculate() {
-    try {
-        let result = eval(expression);
-        display.innerText = result;
+expression = result.toString();
 
-        if (result === correctAnswer) {
-            message.innerText = 'Correct! Take your reward "I"';
-            message.style.color = "green";
+}catch{
 
-            // делаем комнату светлее
-            document.body.style.filter = "brightness(120%)";
+message.innerText = "Invalid expression.";
 
-            // меняем фон
-            document.body.style.backgroundImage = "url('end.png')";
-        } 
-        else {
-            message.innerText = "Wrong answer. Try again.";
-            message.style.color = "red";
-        }
-
-        expression = result.toString();
-    } 
-    catch {
-        message.innerText = "Invalid expression.";
-        message.style.color = "red";
-    }
 }
 
-/* CLEAR */
-function clearDisplay() {
-    expression = "";
-    display.innerText = "0";
+}
+
+function clearDisplay(){
+
+expression = "";
+display.innerText = "0";
+
+}
+
+function goNext(){
+
+window.location.href = "https://isladministrator.github.io/escape-room-puzzle-jekabs-and-william/";
+
 }
