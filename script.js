@@ -36,6 +36,9 @@ function calculate() {
 
             // меняем фон
             document.body.style.backgroundImage = "url('end.png')";
+
+            // показываем кнопку следующего уровня
+            document.getElementById("nextStageBtn").style.display = "block";
         } 
         else {
             message.innerText = "Wrong answer. Try again.";
@@ -54,4 +57,9 @@ function calculate() {
 function clearDisplay() {
     expression = "";
     display.innerText = "0";
+}
+
+/* GO TO NEXT GAME */
+function goNextStage(){
+    window.location.href = "https://isladministrator.github.io/escape-room-puzzle-jekabs-and-william/";
 }
