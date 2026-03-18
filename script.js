@@ -1,12 +1,18 @@
 let display = document.getElementById("display");
 let message = document.getElementById("message");
 
+let scaryMusic = document.getElementById("scaryMusic");
+let winMusic = document.getElementById("winMusic");
+
 let expression = "";
 let correctAnswer = 473;
 
 /* START GAME (OVERLAY CLOSE) */
 function startGame() {
     document.getElementById("overlay").style.display = "none";
+
+    // ▶️ запускаем страшную музыку
+    scaryMusic.play();
 }
 
 /* NUMBER PRESS */
@@ -31,14 +37,16 @@ function calculate() {
             message.innerText = 'Correct! Take your reward "I"';
             message.style.color = "green";
 
-            // делаем комнату светлее
             document.body.style.filter = "brightness(120%)";
-
-            // меняем фон
             document.body.style.backgroundImage = "url('end.png')";
 
-            // показываем кнопку следующего уровня
             document.getElementById("nextStageBtn").style.display = "block";
+
+            // 🔊 переключаем музыку
+            scaryMusic.pause();
+            scaryMusic.currentTime = 0;
+
+            winMusic.play();
         } 
         else {
             message.innerText = "Wrong answer. Try again.";
