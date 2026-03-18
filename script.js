@@ -36,6 +36,9 @@ function calculate() {
         if (result === correctAnswer) {
             message.innerText = 'Correct! Take your reward "I"';
             message.style.color = "green";
+            message.style.backgroundColor = "white"
+            message.style.padding = "10px"
+            message.style.borderRadius = "1vw"
 
             document.body.style.filter = "brightness(120%)";
             document.body.style.backgroundImage = "url('end.png')";

@@ -1,13 +1,22 @@
 body {
     margin: 0;
+    padding: 0;
     height: 100vh;
-    background-image: url("background.jpg");
-    background-size: cover;
+    width: 100vw;
+
+    /* Ensures the image covers the screen and stays centered */
+    background-image: url("backroundbegining.png");
+    background-size: contain;
     background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
     font-family: Arial, sans-serif;
-    background-image: url(backroundbegining.png);
-    background-size: cover;
-    background-position: center;
+    overflow: hidden;
+    /* Prevents scrollbars if the board/calculator shift slightly */
+
+    /* Smooth transition for the brightness effect in your script */
+    transition: filter 0.5s ease-in-out;
 }
 
 /* OVERLAY */
@@ -15,7 +24,7 @@ body {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,84 +53,156 @@ body {
     cursor: pointer;
 }
 
-/* BOARD */
+/* BOARD AREA */
 .board-area {
     position: absolute;
-    top: 35%;
-    left: 46%;
+    top: 42%;           /* Adjusted slightly down to sit under 'Learning Goals' */
+    left: 47%; 
     transform: translate(-50%, -50%);
+    
+    /* This width defines the "invisible box" the text must stay inside */
+    width: 25%;         
+    
     text-align: center;
-    width: 900px;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #problem {
-    font-size: 12px;
-    font-weight: bold;
+    /* Use the new handwritten font */
+    font-family: 'Permanent Marker', cursive;
+    
+    /* Font size and wrapping */
+    font-size: 2.2vw;
+    font-weight: normal; /* Permanent Marker is naturally bold */
+    color: rgba(24, 24, 24, 0.9); /* Slightly transparent for a chalk feel */
+    
+    word-wrap: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
+    line-height: 1.4;
+    margin: 0;
+    
+    /* A softer shadow to mimic chalk dust on the board */
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.3), 
+                 0px 0px 10px rgba(0, 0, 0, 0.2);
+    
+    /* Rotates the text very slightly for that imperfect human touch */
+    transform: rotate(-0.5deg); 
 }
 
 #message {
-    font-size: 20px;
-    margin-top: 25px;
+    font-size: 1.5vw;
+    /* Also scales dynamically */
+    margin-top: 15px;
 }
 
 /* CALCULATOR */
 .calculator {
     position: absolute;
-    right: 60px;
-    bottom: 60px;
+    right: 5%;
+    /* Pin to the right side of the screen */
+    bottom: 5%;
+    /* Pin to the bottom of the screen */
     background: #2c2c2c;
-    padding: 20px;
-    border-radius: 20px;
-    width: 260px;
+    padding: 1.5vw;
+    /* Padding scales with screen width */
+    border-radius: 1.5vw;
+    width: 20vw;
+    /* Calculator width is now 20% of the screen width */
+    min-width: 200px;
+    /* Prevents it from getting too tiny on mobile */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 #display {
     background: #111;
     color: #00ff88;
-    font-size: 30px;
-    padding: 15px;
+    font-size: 2vw;
+    /* Text inside display scales */
+    padding: 1vw;
     text-align: right;
-    border-radius: 10px;
-    margin-bottom: 15px;
+    border-radius: 0.5vw;
+    margin-bottom: 1vw;
 
-    width: 230px;
-    min-height: 40px;
-    max-height: 120px;
-
+    width: 90%;
+    /* Takes up most of the calculator width */
+    min-height: 2.5vw;
     word-wrap: break-word;
-    white-space: normal;
 }
 
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    gap: 0.8vw;
+    /* Gap between buttons scales */
 }
 
 button {
-    padding: 18px;
-    font-size: 20px;
+    padding: 1vw;
+    /* Button height/width depends on viewport */
+    font-size: 1.2vw;
     border: none;
-    border-radius: 10px;
+    border-radius: 0.5vw;
     cursor: pointer;
     background: #444;
     color: white;
+    transition: transform 0.1s, background 0.2s;
+}
+
+button:active {
+    transform: scale(0.95);
+    /* Adds a nice "press" effect */
+}
+
+/* Ensure the zero span still works in the grid */
+.zero {
+    grid-column: span 2;
+}
+
+/* Fix for buttons being too small on tiny screens */
+@media (max-width: 768px) {
+    #display {
+        font-size: 18px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .calculator {
+        width: 250px;
+    }
 }
 
 button:hover {
     background: #666;
 }
 
-.operator { background: orange; }
-.equals { background: green; }
-.clear { background: red; }
-.zero { grid-column: span 2; }
+.operator {
+    background: orange;
+}
+
+.equals {
+    background: green;
+}
+
+.clear {
+    background: red;
+}
+
+.zero {
+    grid-column: span 2;
+}
 
 /* NEXT STAGE BUTTON */
 
-#nextStageBtn{
+#nextStageBtn {
     position: fixed;
-    top: 50%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
 
@@ -139,6 +220,6 @@ button:hover {
     display: none;
 }
 
-#nextStageBtn:hover{
+#nextStageBtn:hover {
     background: green;
 }

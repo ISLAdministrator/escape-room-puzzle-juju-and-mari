@@ -1,65 +1,71 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>ISL Apocalypse - Math Escape</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-<!-- 🎵 MUSIC -->
-<audio id="scaryMusic" src="corruptedRoyalty.mp3" loop></audio>
-<audio id="winMusic" src="Friday.mp3" loop></audio>
+    <!-- 🎵 MUSIC -->
+    <audio id="scaryMusic" src="corruptedRoyalty.mp3" loop></audio>
+    <audio id="winMusic" src="Friday.mp3" loop></audio>
 
-<!-- OVERLAY WITH RULES -->
-<div id="overlay"> 
-    <div class="rule-box">
-        <p>
-            You are trapped inside a broken math classroom in the ISL Apocalypse.<br><br>
-            To restore the learning system and escape, you must solve the math problem written on the board.
-        </p>
-        <button onclick="startGame()">Continue</button>
+    <!-- OVERLAY WITH RULES -->
+    <div id="overlay">
+        <div class="rule-box">
+            <p>
+                You are trapped inside a broken math classroom in the ISL Apocalypse.<br><br>
+                To restore the learning system and escape, you must solve the math problem written on the board.
+            </p>
+            <button onclick="startGame()">Continue</button>
+        </div>
     </div>
-</div>
 
-<!-- BOARD AREA -->
-<div class="board-area">
-    <h1 id="problem">
-        38 + 55 - 5 + 5 + 49 + 69 + 14 - 1 + 67 + 88 + 64 - 22 + 52 = ?
-    </h1>
-    <p id="message"></p>
-</div>
-
-<!-- CALCULATOR -->
-<div class="calculator">
-    <div id="display">0</div>
-
-    <div class="buttons">
-        <button onclick="press('7')">7</button>
-        <button onclick="press('8')">8</button>
-        <button onclick="press('9')">9</button>
-        <button onclick="setOperator('+')">+</button>
-
-        <button onclick="press('4')">4</button>
-        <button onclick="press('5')">5</button>
-        <button onclick="press('6')">6</button>
-        <button onclick="setOperator('-')">−</button>
-
-        <button onclick="press('1')">1</button>
-        <button onclick="press('2')">2</button>
-        <button onclick="press('3')">3</button>
-        <button onclick="calculate()" class="equals">=</button>
-
-        <button onclick="press('0')" class="zero">0</button>
-        <button onclick="clearDisplay()" class="clear">C</button>
+    <!-- BOARD AREA -->
+    <div class="board-area">
+        <h1 id="problem">
+            38 + 55 - 5 + 5 + 49 + 69 + 14 - 1 + 67 + 88 + 64 - 22 + 52 = ?
+        </h1>
+        <p id="message"></p>
     </div>
-</div>
 
-<!-- NEXT STAGE BUTTON -->
-<button id="nextStageBtn" onclick="goNextStage()">
-Go to next stage!
-</button>
+    <!-- CALCULATOR -->
+    <div class="calculator">
+        <div id="display">0</div>
 
-<script src="script.js" defer></script>
+        <div class="buttons">
+            <button onclick="press('7')">7</button>
+            <button onclick="press('8')">8</button>
+            <button onclick="press('9')">9</button>
+            <button onclick="setOperator('+')">+</button>
+
+            <button onclick="press('4')">4</button>
+            <button onclick="press('5')">5</button>
+            <button onclick="press('6')">6</button>
+            <button onclick="setOperator('-')">−</button>
+
+            <button onclick="press('1')">1</button>
+            <button onclick="press('2')">2</button>
+            <button onclick="press('3')">3</button>
+            <button onclick="calculate()" class="equals">=</button>
+
+            <button onclick="press('0')" class="zero">0</button>
+            <button onclick="clearDisplay()" class="clear">C</button>
+        </div>
+    </div>
+
+    <!-- NEXT STAGE BUTTON -->
+    <button id="nextStageBtn" onclick="goNextStage()">
+        Go to next stage!
+    </button>
+
+    <script src="script.js" defer></script>
 
 </body>
+
 </html>
