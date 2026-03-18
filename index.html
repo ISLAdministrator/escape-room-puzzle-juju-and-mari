@@ -1,31 +1,71 @@
-<!--This is an HTML Comment, text just for humans :) It is not part of your code.
-Good coders use comments frequently to stay organized and communicate with collaborators.
-
-The code below is basic HTML for your puzzle.
-You can edit it, add to it, and delete parts of it.
-
-DO NOT let AI code for you!!
--->
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-  <meta charset="UTF-8">
-  <title>Escape Room</title>
-  <link rel="stylesheet" href="style.css">
+    <title>ISL Apocalypse - Math Escape</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-  <h1>Escape Room</h1>
+    <!-- 🎵 MUSIC -->
+    <audio id="scaryMusic" src="corruptedRoyalty.mp3" loop></audio>
+    <audio id="winMusic" src="Friday.mp3" loop></audio>
 
-  <p>
-    Write the story of your escape room here.
-  </p>
+    <!-- OVERLAY WITH RULES -->
+    <div id="overlay">
+        <div class="rule-box">
+            <p>
+                You are trapped inside a broken math classroom in the ISL Apocalypse.<br><br>
+                To restore the learning system and escape, you must solve the math problem written on the board.
+            </p>
+            <button onclick="startGame()">Continue</button>
+        </div>
+    </div>
 
-  <button id="button">Click me</button>
+    <!-- BOARD AREA -->
+    <div class="board-area">
+        <h1 id="problem">
+            38 + 55 - 5 + 5 + 49 + 69 + 14 - 1 + 67 + 88 + 64 - 22 + 52 = ?
+        </h1>
+        <p id="message"></p>
+    </div>
 
-  <p id="output"></p>
+    <!-- CALCULATOR -->
+    <div class="calculator">
+        <div id="display">0</div>
 
-  <script src="script.js"></script>
+        <div class="buttons">
+            <button onclick="press('7')">7</button>
+            <button onclick="press('8')">8</button>
+            <button onclick="press('9')">9</button>
+            <button onclick="setOperator('+')">+</button>
+
+            <button onclick="press('4')">4</button>
+            <button onclick="press('5')">5</button>
+            <button onclick="press('6')">6</button>
+            <button onclick="setOperator('-')">−</button>
+
+            <button onclick="press('1')">1</button>
+            <button onclick="press('2')">2</button>
+            <button onclick="press('3')">3</button>
+            <button onclick="calculate()" class="equals">=</button>
+
+            <button onclick="press('0')" class="zero">0</button>
+            <button onclick="clearDisplay()" class="clear">C</button>
+        </div>
+    </div>
+
+    <!-- NEXT STAGE BUTTON -->
+    <button id="nextStageBtn" onclick="goNextStage()">
+        Go to next stage!
+    </button>
+
+    <script src="script.js" defer></script>
+
 </body>
+
 </html>
